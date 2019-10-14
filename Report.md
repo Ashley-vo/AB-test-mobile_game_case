@@ -37,4 +37,34 @@ The distributions of two group look alike. More importantly, there is a skewed o
 
 Somehow, this is a signal that the retention of players is quite sensitive to number of rounds they played.
 
-## 1-Day Retention
+## Retention Rate
+
+- General retention rate after 1 day is 44.52 %
+- General retention rate after 7 day is 18.61 %
+
+####1- Retention rate Day 1
+    gate_30    44.818792
+    gate_40    44.228275
+
+Hypothesis: The retention rate of control group (gate_30) is higher than test group (gate_40)
+- T-test 
+    
+    
+    t_value: 1.7840774867039824
+    p_value: 0.07441443713953834
+The difference is not significant. Hypothesis is not supported
+
+####2- Retention rate by group Day 7
+
+
+    gate_30    19.020134
+    gate_40    18.200004
+
+Hypothesis: The retention rate of control group (gate_30) is higher than test group (gate_40)
+- T-test 
+
+
+    t_value: 3.164028946774232
+    p_value: 0.001556530181006652
+
+The different is significant since the p value is < 0.05. Hypothesis is supported 
