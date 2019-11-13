@@ -37,37 +37,34 @@ if __name__ == '__main__':
     df = pd.read_csv("cookie_cats.csv")
     # Check missing value
     df.info()
-    # # Number of players in each groups
-    # count_by_version = df.groupby(["version"]).count()["userid"]
-    # count_by_version.reset_index()
-    # ax = pd.DataFrame(count_by_version).plot(kind="bar")
-    # plt.xticks(rotation=0)
-    # plt.show()
-    # # Statistic summary of gamerounds
-    # print(df.groupby("version")["sum_gamerounds"].describe())
-    # count_df = pd.DataFrame(df.groupby("sum_gamerounds")["userid"].count())
-    # print(count_df)
-    #
-    #Subset data by groups
-    gate_40= df[df["version"] == "gate_40"]
-    gate_30= df[df["version"] == "gate_30"]
-    #
-    # # Plot distribution of game rounds
-    # sum_gamerounds_distribution(df, "all", 100)
-    # sum_gamerounds_distribution(df, "all", 10)
-    # sum_gamerounds_distribution(gate_30, "gate_30", 100)
-    # sum_gamerounds_distribution(gate_40, "gate_40", 100)
+    # Number of players in each groups
+    count_by_version = df.groupby(["version"]).count()["userid"]
+    count_by_version.reset_index()
+    ax = pd.DataFrame(count_by_version).plot(kind="bar")
+    plt.xticks(rotation=0)
+    plt.show()
+    # Statistic summary of gamerounds
+    print(df.groupby("version")["sum_gamerounds"].describe())
+    count_df = pd.DataFrame(df.groupby("sum_gamerounds")["userid"].count())
+    print(count_df)
+
+
+    # Plot distribution of game rounds
+    sum_gamerounds_distribution(df, "all", 100)
+    sum_gamerounds_distribution(df, "all", 10)
+    sum_gamerounds_distribution(gate_30, "gate_30", 100)
+    sum_gamerounds_distribution(gate_40, "gate_40", 100)
 
     # Calculate retention rate
-    # print("General retention rate after 1 day is {:.2f} %".format(retention_rate(df, "retention_1")))
-    # print("General retention rate after 7 day is {:.2f} %".format(retention_rate(df, "retention_7")))
-    #
-    # print("Retention rate by group Day 1")
-    # print(retention_rate(df.groupby("version"), "retention_1"))
-    # print("Retention rate by group Day 7")
-    # print(retention_rate(df.groupby("version"), "retention_7"))
-    #
-    # T-test
+    print("General retention rate after 1 day is {:.2f} %".format(retention_rate(df, "retention_1")))
+    print("General retention rate after 7 day is {:.2f} %".format(retention_rate(df, "retention_7")))
+
+    print("Retention rate by group Day 1")
+    print(retention_rate(df.groupby("version"), "retention_1"))
+    print("Retention rate by group Day 7")
+    print(retention_rate(df.groupby("version"), "retention_7"))
+
+    T-test
     t_test(gate_30,gate_40,"retention_1")
     t_test(gate_30,gate_40,"retention_7")
 
